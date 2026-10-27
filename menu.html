@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FRAN TECH | Conserto de Eletrodomésticos</title>
+  <meta name="description" content="Assistência técnica de eletrodomésticos. Solicite seu orçamento pelo WhatsApp.">
+
+  <meta name="theme-color" content="#080808">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --laranja: #ff6a00;
+      --laranja-claro: #ff9d2e;
+      --preto: #080808;
+      --cinza: #a9a9a9;
+      --branco: #ffffff;
+      --verde: #25d366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--branco);
+      background: var(--preto);
+      font-family: "Inter", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .topo {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: rgba(8, 8, 8, .92);
+      border-bottom: 1px solid rgba(255, 106, 0, .22);
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(1.05rem, 3vw, 1.55rem);
+      font-weight: 900;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .logo-icone {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #080808;
+      background: linear-gradient(135deg, var(--laranja-claro), var(--laranja));
+      box-shadow: 0 0 25px rgba(255, 106, 0, .3);
+    }
+
+    .logo-tech {
+      color: var(--laranja);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+      color: #ddd;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      color: var(--laranja);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      padding: 145px 7% 80px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background:
+        radial-gradient(circle at 77% 40%, rgba(255, 106, 0, .2), transparent 30%),
+        linear-gradient(135deg, #050505, #101010 60%, #050505);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+    }
+
+    .etiqueta {
+      width: fit-content;
+      margin-bottom: 22px;
+      padding: 9px 15px;
+      color: var(--laranja-claro);
+      background: rgba(255, 106, 0, .1);
+      border: 1px solid rgba(255, 106, 0, .35);
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: -3px;
+      overflow-wrap: anywhere;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 10px;
+      color: var(--laranja);
+      text-shadow: 0 0 35px rgba(255, 106, 0, .2);
+    }
+
+    .descricao {
+      max-width: 610px;
+      margin-top: 25px;
+      color: var(--cinza);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .servicos-tags {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .servicos-tags span {
+      padding: 10px 13px;
+      color: #e0e0e0;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid #292929;
+      border-radius: 9px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+
+    .botao-principal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 16px 22px;
+      color: #080808;
+      background: linear-gradient(135deg, var(--laranja-claro), var(--laranja));
+      border-radius: 11px;
+      font-weight: 900;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 12px 35px rgba(255, 106, 0, .2);
+    }
+
+    .botao-principal:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 17px 42px rgba(255, 106, 0, .3);
+    }
+
+    .visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .circulo {
+      position: relative;
+      width: min(420px, 78vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 106, 0, .35);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,106,0,.2), rgba(255,106,0,.03) 50%, transparent 70%);
+      box-shadow: inset 0 0 70px rgba(255,106,0,.1), 0 0 80px rgba(255,106,0,.1);
+      animation: flutuar 4s ease-in-out infinite;
+    }
+
+    .circulo::before,
+    .circulo::after {
+      content: "";
+      position: absolute;
+      border: 1px dashed rgba(255, 106, 0, .3);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .circulo::before {
+      width: 86%;
+      height: 86%;
+      animation: girar 22s linear infinite;
+    }
+
+    .circulo::after {
+      width: 62%;
+      height: 62%;
+      animation: girar 15s linear infinite reverse;
+    }
+
+    .icone-ferramenta {
+      position: relative;
+      z-index: 2;
+      width: 45%;
+      color: var(--laranja);
+      filter: drop-shadow(0 0 25px rgba(255,106,0,.25));
+    }
+
+    .icone-ferramenta svg {
+      width: 100%;
+      height: auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .selo {
+      position: absolute;
+      z-index: 3;
+      right: 0;
+      bottom: 12%;
+      padding: 13px 16px;
+      background: #151515;
+      border: 1px solid rgba(255,106,0,.45);
+      border-radius: 12px;
+      font-size: .85rem;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+
+    .selo span {
+      color: var(--laranja);
+    }
+
+    .secao {
+      padding: 85px 7%;
+      background: #0d0d0d;
+      border-top: 1px solid #202020;
+    }
+
+    .titulo-secao {
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+    }
+
+    .titulo-secao span {
+      color: var(--laranja);
+    }
+
+    .texto-secao {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--cinza);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .grade-servicos {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .cartao {
+      padding: 25px 20px;
+      background: #131313;
+      border: 1px solid #292929;
+      border-radius: 15px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .cartao:hover {
+      transform: translateY(-5px);
+      border-color: var(--laranja);
+    }
+
+    .icone-cartao {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 18px;
+      display: grid;
+      place-items: center;
+      color: var(--laranja);
+      background: rgba(255,106,0,.1);
+      border-radius: 12px;
+      font-size: 1.5rem;
+    }
+
+    .cartao h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .cartao p {
+      color: var(--cinza);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .grade-pagamento {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .formulario {
+      max-width: 760px;
+      margin: 38px auto 0;
+      padding: 30px;
+      background: #121212;
+      border: 1px solid #292929;
+      border-radius: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .campo {
+      min-width: 0;
+    }
+
+    .campo-completo {
+      grid-column: 1 / -1;
+    }
+
+    .campo label {
+      display: block;
+      margin-bottom: 8px;
+      color: #eee;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 13px 14px;
+      color: white;
+      background: #090909;
+      border: 1px solid #363636;
+      border-radius: 9px;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .campo textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .campo input:focus,
+    .campo select:focus,
+    .campo textarea:focus {
+      border-color: var(--laranja);
+    }
+
+    .campo input::placeholder,
+    .campo textarea::placeholder {
+      color: #888;
+    }
+
+    .ajuda {
+      margin-top: 8px;
+      color: #aaa;
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+    .opcoes-troco {
+      margin-top: 18px;
+      padding: 18px;
+      background: #19130f;
+      border: 1px solid rgba(255,106,0,.3);
+      border-radius: 12px;
+    }
+
+    .opcoes-troco[hidden] {
+      display: none !important;
+    }
+
+    .botao-enviar {
+      width: 100%;
+      min-height: 54px;
+      margin-top: 25px;
+      padding: 15px;
+      color: white;
+      background: linear-gradient(135deg, #25d366, #128c4a);
+      border: none;
+      border-radius: 11px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .botao-enviar:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(37,211,102,.2);
+    }
+
+    .aviso {
+      margin-top: 14px;
+      color: #999;
+      font-size: .82rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .rodape {
+      padding: 65px 7% 25px;
+      text-align: center;
+      background: #050505;
+      border-top: 1px solid #202020;
+    }
+
+    .rodape h2 {
+      margin-bottom: 15px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -1px;
+    }
+
+    .rodape h2 span {
+      color: var(--laranja);
+    }
+
+    .rodape p {
+      margin-bottom: 25px;
+      color: var(--cinza);
+      line-height: 1.8;
+    }
+
+    .whatsapp-rodape {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 25px;
+      color: white;
+      background: linear-gradient(135deg, #25d366, #128c4a);
+      border-radius: 12px;
+      font-weight: 800;
+      transition: transform .25s;
+    }
+
+    .whatsapp-rodape:hover {
+      transform: translateY(-4px);
+    }
+
+    .copyright {
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid #202020;
+      color: #777;
+      font-size: .82rem;
+    }
+
+    .whatsapp-flutuante {
+      position: fixed;
+      z-index: 90;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: #25d366;
+      border-radius: 50%;
+      box-shadow: 0 6px 25px rgba(37,211,102,.3);
+      font-size: 1.8rem;
+      transition: transform .2s;
+    }
+
+    .whatsapp-flutuante:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-13px); }
+    }
+
+    @keyframes girar {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 1000px) {
+      .hero {
+        gap: 30px;
+      }
+
+      .grade-servicos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 850px) {
+      .menu {
+        gap: 14px;
+        font-size: .82rem;
+      }
+
+      .hero {
+        padding-top: 125px;
+        grid-template-columns: 1fr;
+        gap: 45px;
+        text-align: center;
+      }
+
+      .conteudo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .descricao {
+        max-width: 600px;
+      }
+
+      .servicos-tags {
+        justify-content: center;
+      }
+
+      .circulo {
+        width: min(370px, 76vw);
+      }
+
+      .grade-pagamento {
+        grid-template-columns: 1fr;
+      }
+
+      .selo {
+        right: 3%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topo {
+        padding: 12px 5%;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .hero,
+      .secao,
+      .rodape {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero {
+        padding-top: 115px;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 10.5vw, 3.4rem);
+      }
+
+      .etiqueta {
+        font-size: .67rem;
+        letter-spacing: 1px;
+      }
+
+      .servicos-tags {
+        gap: 8px;
+      }
+
+      .servicos-tags span {
+        padding: 9px 10px;
+        font-size: .76rem;
+      }
+
+      .botao-principal,
+      .whatsapp-rodape {
+        width: 100%;
+      }
+
+      .grade-servicos,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .campo-completo {
+        grid-column: auto;
+      }
+
+      .formulario {
+        padding: 20px 15px;
+      }
+
+      .selo {
+        right: -2%;
+        bottom: 8%;
+        font-size: .75rem;
+      }
+
+      .whatsapp-flutuante {
+        width: 52px;
+        height: 52px;
+        right: 15px;
+        bottom: 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topo">
+    <a class="logo" href="#inicio" aria-label="Página inicial da FRAN TECH">
+      <span class="logo-icone">F</span>
+      <span>FRAN <span class="logo-tech">TECH</span></span>
+    </a>
+
+    <nav aria-label="Menu principal">
+      <ul class="menu">
+        <li><a href="#inicio">INÍCIO</a></li>
+        <li><a href="#servicos">SERVIÇOS</a></li>
+        <li><a href="#pagamento">PAGAMENTOS</a></li>
+        <li><a href="#orcamento">ORÇAMENTO</a></li>
+        <li><a href="./empresa.html"> VER EMPRESA</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="conteudo">
+        <div class="etiqueta">Assistência técnica especializada</div>
+
+        <h1>
+          CONSERTO DE
+          <span>ELETRODOMÉSTICOS.</span>
+        </h1>
+
+        <p class="descricao">
+          Seu eletrodoméstico parou de funcionar? Conte com a FRAN TECH
+          para solicitar uma avaliação e encontrar a melhor solução.
+          Atendimento com cuidado, transparência e confiança.
+        </p>
+
+        <div class="servicos-tags">
+          <span>Geladeiras</span>
+          <span>Máquinas de lavar</span>
+          <span>Micro-ondas</span>
+          <span>Fogões</span>
+          <span>Freezers</span>
+             <span>panela elétrica</span>
+        </div>
+
+        <a class="botao-principal" href="#orcamento">
+          SOLICITAR ORÇAMENTO
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="visual" aria-hidden="true">
+        <div class="circulo">
+          <div class="icone-ferramenta">
+            <svg viewBox="0 0 120 120">
+              <path d="M75 18a27 27 0 0 0-34 34L18 75a13 13 0 0 0 18 18l23-23A27 27 0 0 0 93 36L76 53 64 50 61 38 78 21a27 27 0 0 0-3-3Z"/>
+              <path d="m27 82 11 11"/>
+              <circle cx="83" cy="82" r="19"/>
+              <path d="m70 95 26-26"/>
+              <path d="M76 82h14M83 75v14"/>
+            </svg>
+          </div>
+        </div>
+        <div class="selo">Cuidado e <span>confiança</span></div>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <h2 class="titulo-secao">Nossos <span>serviços</span></h2>
+      <p class="texto-secao">
+        Informe qual aparelho precisa de atenção. Vamos avaliar as
+        informações e conversar sobre as opções de reparo.
+      </p>
+
+      <div class="grade-servicos">
+        <article class="cartao">
+          <div class="icone-cartao" aria-hidden="true">❄</div>
+          <h3>Geladeiras</h3>
+          <p>Avaliação de falhas de refrigeração e outros problemas de funcionamento.</p>
+        </article>
+
+        <article class="cartao">
+          <div class="icone-cartao" aria-hidden="true">◉</div>
+          <h3>Máquinas de lavar</h3>
+          <p>Avaliação de problemas de lavagem, centrifugação e drenagem.</p>
+        </article>
+
+        <article class="cartao">
+          <div class="icone-cartao" aria-hidden="true">▣</div>
+          <h3>Micro-ondas</h3>
+          <p>Avaliação de falhas de aquecimento, comandos e funcionamento.</p>
+        </article>
+
+        <article class="cartao">
+          <div class="icone-cartao" aria-hidden="true">♨</div>
+          <h3>Fogões</h3>
+          <p>Avaliação de problemas de acendimento e funcionamento do aparelho.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao" id="pagamento">
+      <h2 class="titulo-secao">Formas de <span>pagamento</span></h2>
+      <p class="texto-secao">
+        As condições de pagamento são combinadas diretamente pelo WhatsApp,
+        conforme o orçamento e as opções disponíveis.
+      </p>
+
+      <div class="grade-pagamento">
+        <article class="cartao">
+          <div class="icone-cartao" aria-hidden="true">◇</div>
+          <h3>Pix</h3>
+          <p>Consulte os dados e confirme as condições pelo WhatsApp.</p>
+        </article>
+
+        <article class="cartao">
+          <div class="icone-cartao" aria-hidden="true">▤</div>
+          <h3>Cartão</h3>
+          <p>Consulte as opções disponíveis e eventuais condições de parcelamento.</p>
+        </article>
+
+        <article class="cartao">
+          <div class="icone-cartao" aria-hidden="true">R$</div>
+          <h3>Dinheiro e troco</h3>
+          <p>Informe se precisa de troco e o valor para o qual precisa recebê-lo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao" id="orcamento">
+      <h2 class="titulo-secao">Solicite seu <span>orçamento</span></h2>
+      <p class="texto-secao">
+        Preencha os campos abaixo. O WhatsApp será aberto com uma mensagem
+        organizada contendo os dados do aparelho, defeito e pagamento.
+      </p>
+
+      <form class="formulario" id="formOrcamento">
+        <div class="form-grid">
+          <div class="campo campo-completo">
+            <label for="nome">Seu nome *</label>
+            <input id="nome" name="nome" type="text"
+                   placeholder="Digite seu nome" autocomplete="name" required>
+          </div>
+
+          <div class="campo">
+            <label for="aparelho">Eletrodoméstico *</label>
+            <select id="aparelho" name="aparelho" required>
+              <option value="">Selecione</option>
+              <option>Geladeira</option>
+              <option>Máquina de lavar</option>
+              <option>Micro-ondas</option>
+              <option>Fogão</option>
+              <option>Freezer</option>
+              <option>Forno elétrico</option>
+              <option>Lava-louças</option>
+              <option>Secadora de roupas</option>
+              <option>panelas elétricas</option>
+              <option>Outro eletrodoméstico</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="marca">Marca e modelo</label>
+            <input id="marca" name="marca" type="text"
+                   placeholder="Ex.: Brastemp, Consul...">
+          </div>
+
+          <div class="campo campo-completo">
+            <label for="problema">Descreva o problema *</label>
+            <textarea id="problema" name="problema" required
+                      placeholder="Ex.: a geladeira liga, mas não está gelando. Quando começou? Faz algum barulho?"></textarea>
+          </div>
+
+          <div class="campo">
+            <label for="cidade">Cidade *</label>
+            <input id="cidade" name="cidade" type="text"
+                   placeholder="Sua cidade" autocomplete="address-level2" required>
+          </div>
+
+          <div class="campo">
+            <label for="bairro">Bairro *</label>
+            <input id="bairro" name="bairro" type="text"
+                   placeholder="Seu bairro" required>
+          </div>
+
+          <div class="campo campo-completo">
+            <label for="endereco">Rua e número (opcional)</label>
+            <input id="endereco" name="endereco" type="text"
+                   placeholder="Informe se desejar">
+            <p class="ajuda">
+              Você também pode combinar o endereço completo diretamente no WhatsApp.
+            </p>
+          </div>
+
+          <div class="campo campo-completo">
+            <label for="pagamento">Forma de pagamento preferida *</label>
+            <select id="pagamento" name="pagamento" required>
+              <option value="">Selecione uma opção</option>
+              <option value="Pix">Pix</option>
+              <option value="Cartão">Cartão</option>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="A combinar">Quero combinar pelo WhatsApp</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="opcoes-troco" id="campoTroco" hidden>
+          <div class="campo">
+            <label for="precisaTroco">Precisa de troco? *</label>
+            <select id="precisaTroco" name="precisaTroco">
+              <option value="Não">Não preciso de troco</option>
+              <option value="Sim">Sim, preciso de troco</option>
+            </select>
+          </div>
+
+          <div class="campo" id="valorTrocoContainer" style="margin-top:16px" hidden>
+            <label for="valorTroco">Troco para quanto? *</label>
+            <input id="valorTroco" name="valorTroco" type="text"
+                   inputmode="decimal"
+                   placeholder="Ex.: R$ 100,00">
+            <p class="ajuda">
+              Informe o valor da nota ou quantia que pretende usar.
+              A disponibilidade de troco será confirmada pelo atendimento.
+            </p>
+          </div>
+        </div>
+
+        <button class="botao-enviar" type="submit">
+          ENVIAR PEDIDO PELO WHATSAPP
+        </button>
+
+        <p class="aviso">
+          Ao clicar, o WhatsApp será aberto com sua mensagem preenchida.
+          Você poderá revisar os dados antes de tocar em Enviar.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <h2>Seu aparelho precisa de <span>reparo?</span></h2>
+    <p>
+      Fale com a FRAN TECH e conte o que aconteceu.<br>
+      Vamos conversar sobre o orçamento e as condições de pagamento.
+    </p>
+
+    <a class="whatsapp-rodape"
+       href="https://wa.me/5517997746829?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20FRAN%20TECH%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+       target="_blank" rel="noopener noreferrer">
+      FALAR PELO WHATSAPP
+    </a>
+
+    <div class="copyright">
+      © 2026 FRAN TECH — Conserto de Eletrodomésticos.
+      Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <a class="whatsapp-flutuante"
+     href="https://wa.me/5517997746829?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20FRAN%20TECH%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Entrar em contato pelo WhatsApp"
+     title="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30"
+         fill="currentColor" aria-hidden="true">
+      <path d="M16 2.5A13.4 13.4 0 0 0 4.5 22.8L2.7 29.5l6.9-1.8A13.5 13.5 0 1 0 16 2.5Zm0 24.5h-.1a11 11 0 0 1-5.6-1.5l-.4-.3-4.1 1.1 1.1-4-.3-.5A11 11 0 1 1 16 27Zm6-8.2c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2l-1 1.1c-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.3 3c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/>
+    </svg>
+  </a>
+
+  <script>
+    (() => {
+      // Número no formato internacional: 55 + DDD + telefone.
+      // Não use espaços, parênteses, traços ou o sinal de +.
+      const numeroWhatsApp = "5517997746829";
+
+      const formulario = document.getElementById("formOrcamento");
+      const pagamento = document.getElementById("pagamento");
+      const campoTroco = document.getElementById("campoTroco");
+      const precisaTroco = document.getElementById("precisaTroco");
+      const valorTrocoContainer = document.getElementById("valorTrocoContainer");
+      const valorTroco = document.getElementById("valorTroco");
+
+      function atualizarPagamento() {
+        const emDinheiro = pagamento.value === "Dinheiro";
+
+        campoTroco.hidden = !emDinheiro;
+        precisaTroco.required = emDinheiro;
+
+        if (!emDinheiro) {
+          precisaTroco.value = "Não";
+          valorTroco.value = "";
+        }
+
+        atualizarTroco();
+      }
+
+      function atualizarTroco() {
+        const exibirValor =
+          pagamento.value === "Dinheiro" &&
+          precisaTroco.value === "Sim";
+
+        valorTrocoContainer.hidden = !exibirValor;
+        valorTroco.required = exibirValor;
+
+        if (!exibirValor) {
+          valorTroco.value = "";
+        }
+      }
+
+      pagamento.addEventListener("change", atualizarPagamento);
+      precisaTroco.addEventListener("change", atualizarTroco);
+
+      formulario.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        if (!formulario.reportValidity()) {
+          return;
+        }
+
+        const dados = new FormData(formulario);
+
+        const nome = dados.get("nome").trim();
+        const aparelho = dados.get("aparelho");
+        const marca = dados.get("marca").trim();
+        const problema = dados.get("problema").trim();
+        const cidade = dados.get("cidade").trim();
+        const bairro = dados.get("bairro").trim();
+        const endereco = dados.get("endereco").trim();
+        const formaPagamento = dados.get("pagamento");
+
+        let informacaoTroco = "Não se aplica";
+
+        if (formaPagamento === "Dinheiro") {
+          informacaoTroco = precisaTroco.value === "Sim"
+            ? "Precisa de troco para: " + valorTroco.value.trim()
+            : "Não precisa de troco";
+        }
+
+        const linhas = [
+          "Olá! Vim pelo site da FRAN TECH e gostaria de solicitar um orçamento.",
+          "",
+          "DADOS DO CLIENTE",
+          "Nome: " + nome,
+          "Cidade: " + cidade,
+          "Bairro: " + bairro,
+          "Endereço: " + (endereco || "A combinar pelo WhatsApp"),
+          "",
+          "DADOS DO ELETRODOMÉSTICO",
+          "Aparelho: " + aparelho,
+          "Marca/modelo: " + (marca || "Não informado"),
+          "Descrição do problema: " + problema,
+          "",
+          "PAGAMENTO",
+          "Forma preferida: " + formaPagamento,
+          "Troco: " + informacaoTroco,
+          "",
+          "Gostaria de combinar o orçamento, o atendimento e as condições de pagamento pelo WhatsApp."
+        ];
+
+        const mensagem = linhas.join("\n");
+        const url = "https://wa.me/" + numeroWhatsApp +
+          "?text=" + encodeURIComponent(mensagem);
+
+        const janela = window.open(url, "_blank");
+
+        // Alternativa para navegadores que bloqueiam a nova janela.
+        if (!janela) {
+          window.location.href = url;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

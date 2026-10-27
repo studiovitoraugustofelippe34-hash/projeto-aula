@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAN TECH — Sem Área Branca</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            /* Fundo da cor da marca — cobre qualquer espaço restante */
+            background-color: #121212;
+        }
+
+        .imagem-fran-tech {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* COBRE TELA INTEIRA sem distorcer */
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <img src="./empresa fran.png" alt="FRAN TECH - Conserto de Eletrodomésticos" class="imagem-fran-tech">
+</body>
+</html>
