@@ -1,39 +1,640 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRAN TECH — Sem Área Branca</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+  <title>FRAN TECH | Nossa Empresa</title>
 
-        body {
-            /* Fundo da cor da marca — cobre qualquer espaço restante */
-            background-color: #121212;
-        }
+  <meta name="description" content="Conheça a FRAN TECH. Assistência técnica de eletrodomésticos em Rubinéia, São Paulo.">
+  <meta name="theme-color" content="#080808">
 
-        .imagem-fran-tech {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover; /* COBRE TELA INTEIRA sem distorcer */
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --laranja: #ff6a00;
+      --laranja-claro: #ff9d2e;
+      --preto: #080808;
+      --cinza: #a9a9a9;
+      --branco: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--branco);
+      background: var(--preto);
+      font-family: "Inter", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* MENU SUPERIOR */
+    .topo {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: rgba(8, 8, 8, .94);
+      border-bottom: 1px solid rgba(255, 106, 0, .22);
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(1.05rem, 3vw, 1.55rem);
+      font-weight: 900;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .logo-icone {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #080808;
+      background: linear-gradient(135deg, var(--laranja-claro), var(--laranja));
+      box-shadow: 0 0 25px rgba(255, 106, 0, .3);
+    }
+
+    .logo-tech {
+      color: var(--laranja);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+      color: #ddd;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .menu a {
+      transition: color .2s;
+    }
+
+    .menu a:hover,
+    .menu a.ativo {
+      color: var(--laranja);
+    }
+
+    /* APRESENTAÇÃO */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 75vh;
+      padding: 150px 7% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background:
+        radial-gradient(circle at 75% 40%, rgba(255, 106, 0, .18), transparent 35%),
+        linear-gradient(135deg, #050505, #101010 60%, #050505);
+    }
+
+    .etiqueta {
+      width: fit-content;
+      margin-bottom: 22px;
+      padding: 9px 15px;
+      color: var(--laranja-claro);
+      background: rgba(255, 106, 0, .1);
+      border: 1px solid rgba(255, 106, 0, .35);
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -3px;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 10px;
+      color: var(--laranja);
+    }
+
+    .descricao {
+      max-width: 600px;
+      margin-top: 25px;
+      color: var(--cinza);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 16px 22px;
+      color: #080808;
+      background: linear-gradient(135deg, var(--laranja-claro), var(--laranja));
+      border-radius: 11px;
+      font-weight: 900;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 12px 35px rgba(255, 106, 0, .2);
+    }
+
+    .botao:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 17px 42px rgba(255, 106, 0, .3);
+    }
+
+    /* IMAGEM DA EMPRESA */
+    .imagem-empresa {
+      position: relative;
+      min-height: 400px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 106, 0, .55);
+      border-radius: 22px;
+      background: #151515;
+      box-shadow: 0 20px 70px rgba(0, 0, 0, .45);
+    }
+
+    .imagem-empresa img {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .6s ease;
+    }
+
+    .imagem-empresa:hover img {
+      transform: scale(1.04);
+    }
+
+    .legenda-imagem {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      left: 18px;
+      padding: 18px;
+      background: rgba(0, 0, 0, .78);
+      border: 1px solid rgba(255, 106, 0, .35);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .legenda-imagem strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--laranja);
+      font-size: 1.05rem;
+    }
+
+    .legenda-imagem p {
+      color: #ddd;
+      font-size: .85rem;
+      line-height: 1.6;
+    }
+
+    /* SEÇÕES */
+    .secao {
+      padding: 85px 7%;
+      background: #0d0d0d;
+      border-top: 1px solid #202020;
+    }
+
+    .titulo-secao {
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+    }
+
+    .titulo-secao span {
+      color: var(--laranja);
+    }
+
+    .texto-secao {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--cinza);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* ENDEREÇO */
+    .endereco-card {
+      max-width: 850px;
+      margin: 40px auto 30px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #131313;
+      border: 1px solid #292929;
+      border-radius: 16px;
+    }
+
+    .endereco-icone {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      color: var(--laranja);
+      background: rgba(255, 106, 0, .12);
+      border: 1px solid rgba(255, 106, 0, .3);
+      border-radius: 14px;
+      font-size: 1.8rem;
+    }
+
+    .endereco-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .endereco-card p {
+      color: var(--cinza);
+      line-height: 1.8;
+    }
+
+    /* MAPA GOOGLE */
+    .mapa-container {
+      max-width: 1100px;
+      margin: 35px auto 0;
+      overflow: hidden;
+      border: 2px solid rgba(255, 106, 0, .5);
+      border-radius: 18px;
+      background: #151515;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+    }
+
+    .mapa-container iframe {
+      width: 100%;
+      height: 480px;
+      display: block;
+      border: 0;
+    }
+
+    .mapa-acoes {
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      background: #131313;
+    }
+
+    .mapa-acoes p {
+      color: var(--cinza);
+      line-height: 1.7;
+    }
+
+    .botao-mapa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      color: #080808;
+      background: linear-gradient(135deg, var(--laranja-claro), var(--laranja));
+      border-radius: 10px;
+      font-weight: 800;
+      transition: transform .2s;
+    }
+
+    .botao-mapa:hover {
+      transform: translateY(-3px);
+    }
+
+    /* RODAPÉ */
+    .rodape {
+      padding: 60px 7% 25px;
+      text-align: center;
+      background: #050505;
+      border-top: 1px solid #202020;
+    }
+
+    .rodape h2 {
+      margin-bottom: 15px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -1px;
+    }
+
+    .rodape h2 span {
+      color: var(--laranja);
+    }
+
+    .rodape p {
+      margin-bottom: 25px;
+      color: var(--cinza);
+      line-height: 1.8;
+    }
+
+    .copyright {
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid #202020;
+      color: #777;
+      font-size: .82rem;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .conteudo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .imagem-empresa {
+        width: 100%;
+        min-height: 350px;
+      }
+
+      .imagem-empresa img {
+        min-height: 350px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topo {
+        padding: 12px 5%;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .hero,
+      .secao,
+      .rodape {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero {
+        padding-top: 115px;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+        letter-spacing: -2px;
+      }
+
+      .descricao {
+        font-size: .98rem;
+      }
+
+      .imagem-empresa,
+      .imagem-empresa img {
+        min-height: 280px;
+      }
+
+      .endereco-card {
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      .endereco-icone {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+      }
+
+      .mapa-container iframe {
+        height: 350px;
+      }
+
+      .mapa-acoes {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .botao-mapa {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <img src="./empresa fran.png" alt="FRAN TECH - Conserto de Eletrodomésticos" class="imagem-fran-tech">
+
+  <!-- MENU SUPERIOR -->
+  <header class="topo">
+    <a class="logo" href="./imagens/logo 2.png" aria-label="Página inicial FRAN TECH">
+      <span class="logo-icone">F</span>
+      <span>FRAN <span class="logo-tech">TECH</span></span>
+    </a>
+
+    <nav aria-label="Menu principal">
+      <ul class="menu">
+        <li><a href="./index.html">INÍCIO</a></li>
+        <li><a href="./menu.html">ACESSO RÁPIDO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- APRESENTAÇÃO DA EMPRESA -->
+    <section class="hero">
+
+      <div class="conteudo">
+
+        <div class="etiqueta">
+          Conheça nossa empresa
+        </div>
+
+        <h1>
+          FRAN
+          <span>TECH</span>
+        </h1>
+
+        <p class="descricao">
+          Somos uma assistência técnica dedicada ao conserto de
+          eletrodomésticos. Trabalhamos com cuidado, atenção e
+          compromisso para oferecer uma experiência de atendimento
+          confiável aos nossos clientes.
+        </p>
+
+        <p class="descricao">
+          Estamos localizados em Rubinéia, São Paulo.
+          Venha conhecer nossa empresa e entre em contato para
+          solicitar seu orçamento.
+        </p>
+
+        <a href="#localizacao" class="botao">
+          VER NOSSA LOCALIZAÇÃO
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </div>
+
+      <!-- FOTO DA EMPRESA -->
+      <div class="imagem-empresa">
+
+        <img
+          src="./imagens/Logo na fachada.png"
+          alt="Imagem da empresa FRAN TECH"
+          loading="eager"
+        >
+
+        <div class="legenda-imagem">
+          <strong>FRAN TECH</strong>
+          <p>
+            Conserto de eletrodomésticos com cuidado,
+            confiança e dedicação.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- LOCALIZAÇÃO DA EMPRESA -->
+    <section class="secao" id="localizacao">
+
+      <h2 class="titulo-secao">
+        Onde <span>estamos</span>
+      </h2>
+
+      <p class="texto-secao">
+        Estamos em Rubinéia, no interior de São Paulo.
+        Confira nosso endereço e utilize o mapa para encontrar
+        o caminho até a FRAN TECH.
+      </p>
+
+      <!-- ENDEREÇO -->
+      <div class="endereco-card">
+
+        <div class="endereco-icone" aria-hidden="true">
+          📍
+        </div>
+
+        <div>
+          <h3>Endereço da FRAN TECH</h3>
+
+          <p>
+            Rua José Sanches Duran, nº 405<br>
+            Rubinéia — São Paulo<br>
+            Brasil
+          </p>
+        </div>
+
+      </div>
+
+      <!-- MAPA DO GOOGLE MAPS -->
+      <div class="mapa-container">
+
+        <iframe
+          src="https://maps.google.com/maps?q=Rua%20Jos%C3%A9%20Sanches%20Duran%2C%20405%2C%20Rubin%C3%A9ia%2C%20SP%2C%20Brasil&output=embed"
+          title="Mapa da localização da FRAN TECH em Rubinéia"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+
+        <div class="mapa-acoes">
+
+          <p>
+            <strong>Precisa chegar até nós?</strong><br>
+            Abra o Google Maps para visualizar a rota.
+          </p>
+
+          <a
+            class="botao-mapa"
+            href="https://www.google.com/maps/dir/?api=1&destination=Rua+Jos%C3%A9+Sanches+Duran%2C+405%2C+Rubin%C3%A9ia%2C+SP%2C+Brasil"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            COMO CHEGAR
+            <span aria-hidden="true">↗</span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ SEM WHATSAPP -->
+  <footer class="rodape">
+
+    <h2>
+      Conte com a <span>FRAN TECH</span>
+    </h2>
+
+    <p>
+      Estamos prontos para conversar sobre o seu eletrodoméstico.<br>
+      Solicite seu orçamento e conheça nossas opções de atendimento.
+    </p>
+
+    <div class="copyright">
+      © 2026 FRAN TECH — Conserto de Eletrodomésticos.
+      Todos os direitos reservados.
+    </div>
+
+  </footer>
+
 </body>
 </html>
